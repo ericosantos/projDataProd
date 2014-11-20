@@ -27,18 +27,22 @@ knit        : slidify::knit2slides
 
 ## The main plot is generated with the R code below  
 
-```{r fig.height=4}
+
+```r
 dd0 <- rweibull(1000000,shape = 5, scale = 1)
 plot(density(dd0)
      ,main="Density plots for the weibull distribution"
      ,xlab="x",xlim=c(0,3),ylim=c(0,2.5),col="red")
 ```
 
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png) 
+
 ---
 
 ## And a line with user inputs is then plotted in the same chart  
 
-```{r fig.height=4}
+
+```r
 inshape <- 1#input$shape
 inscale <- 1#input$scale
 ## repeating line from previous slide
@@ -46,8 +50,9 @@ plot(density(dd0),main="Density plots for the weibull distribution",xlab="x",xli
 dd <- rweibull(1000000,shape = inshape, scale = inscale)
 lines(density(dd),col="blue")
 legend(2,2,c("sh= 5,sc= 1",paste("sh=",inshape,"sc=",inscale)),col=c("red","blue"),lty=1,box.lty=0)
-
 ```
+
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 ---
 

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developing Data Products - Course Project</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Developing Data Products - Course Project">
+  <meta name="author" content="Erico Santos">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/css/bootstrap.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/slides" 
+    src="http://slidifylibraries2.googlecode.com/git/inst/libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Developing Data Products - Course Project</h1>
+    <h2>Plotting the Weibull distribution</h2>
+    <p>Erico Santos<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Purpose</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>The app plots density curves for the Weibull distribution with different parameters for shape and scale that can be tested by the user.  </p></li>
+<li><p>The generated curve is always plotted together with the original plot (with shape=5 and scale=1) for comparison</p></li>
+<li><p>A random weibull distribution with 1000000 points is generated and the density is then plotted. The density is similar to a histogram, but drawn as a line instead of frequency bars.  </p></li>
+<li><p>A definition of the Weibull distribution can be found at <a href="http://en.wikipedia.org/wiki/Weibull_distribution">Wikipedia</a></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The main plot is generated with the R code below</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">dd0 &lt;- rweibull(1000000,shape = 5, scale = 1)
+plot(density(dd0)
+     ,main=&quot;Density plots for the weibull distribution&quot;
+     ,xlab=&quot;x&quot;,xlim=c(0,3),ylim=c(0,2.5),col=&quot;red&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>And a line with user inputs is then plotted in the same chart</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">inshape &lt;- 1#input$shape
+inscale &lt;- 1#input$scale
+## repeating line from previous slide
+plot(density(dd0),main=&quot;Density plots for the weibull distribution&quot;,xlab=&quot;x&quot;,xlim=c(0,3),ylim=c(0,2.5),col=&quot;red&quot;)
+dd &lt;- rweibull(1000000,shape = inshape, scale = inscale)
+lines(density(dd),col=&quot;blue&quot;)
+legend(2,2,c(&quot;sh= 5,sc= 1&quot;,paste(&quot;sh=&quot;,inshape,&quot;sc=&quot;,inscale)),col=c(&quot;red&quot;,&quot;blue&quot;),lty=1,box.lty=0)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAEgCAMAAABvm5EPAAAAnFBMVEX9/v0AAAAAADkAAGUAAP8AOTkAOY8AZo8AZrU5AAA5ADk5AGU5OY85ZmU5ZrU5j485j9plAABlADllAGVlZgBlZjllZmVltbVltf2POQCPOTmPOWWPj7WPtY+P27WP29qP2/21ZgC1ZmW1tWW124+1/rW1/tq1/v2+vr7ajznatWXa/rXa/tra/v39tWX924/9/rX9/tr9/v3/AADjViXSAAAANHRSTlP//////////////////////////////////////////////////////////////////wD/9XEwmgAAAAlwSFlzAAALEgAACxIB0t1+/AAADSdJREFUeJztnYuam7gZhtfOdGonaWsn3c3MpumapumUJgGbuf97KzogTgILSYDE/71PnsTBkn7Mi4RAAn4pAEl+WXsFwDpAPFEgnigQTxSIJwrEEwXiiQLxRIF4okA8USCeKBBPFIgnCsQTBeKJAvFEgXiiQDxRIJ4oEE8UiCcKxBMF4okC8USBeKKsK/563jGextO8eSmKRJ9GfKnopsqPu/1Fl69MeHtuZb2zBv3UbGkr/PX8+LO9Pmp19CXwBJ1fsBhBiN+d7iVMBnaOzobuphrKxpabi2cYih+Jrok3tHpLsLZ4tjGyHfs7FVW/3D5fd3xBWV3Zv2Wa/zyX3/2ZbbhM7CMqkSgg5fvOjaU6VNl4qnJBKUN8Xf53/ytvAETCsox/H0XKVLU63E5apuYW5XJZX7/ywniKqnIr8azIT1WNF2tQRWFB/6kr4QdP0PwFjR8/OyGI53t+Iqs+315MoGgN+Lbk4g8pSyVabplIbmiR9XCTG1J8Uyjx8mu1HyjxcrkKzeBByoVsD6uWC/EyolZ8a33kGvyoozx+15XQEN9aRb5OsxOE+HJr50dZF8rffio3++NPvqRKw3aN/HiomkueqNzAT+zL/FjuDddz+ZdI1WhwxQL5dZnp0FjOy2CpVWj2TX48Xc+/vXlJ9xe1XIo/yVI04vMjbyjEQrUGMsqhajO6JfAErV+gfvz8mz4U8Zk42LPfzjcC24a7ujUX27CsOUKd0FQ2yezLjPsUVfWpqLJx2AL1NS+5Xq4CqdBijQ752y9vLwkrVy6vu2YJK0UjPhN2GzVephZRCn0JSnx7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" alt="plot of chunk unnamed-chunk-2"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The App</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>The app can be accessed at this address: <a href="https://ericosantos.shinyapps.io/plotWeibull/">plotWeibull</a>  </p></li>
+<li><p>And the code can be found at: <a href="https://github.com/ericosantos/projDataProd">Github</a></p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Purpose'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The main plot is generated with the R code below'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='And a line with user inputs is then plotted in the same chart'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+
+  <script>  
+  $(function (){ 
+    $("#example").popover(); 
+    $("[rel='tooltip']").tooltip(); 
+  });  
+  </script>  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="http://slidifylibraries2.googlecode.com/git/inst/libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
