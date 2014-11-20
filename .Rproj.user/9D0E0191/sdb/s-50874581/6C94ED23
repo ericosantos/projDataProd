@@ -1,0 +1,17 @@
+{
+    "contents" : "library(devtools)\n\n# if (!require(\"devtools\"))\n#   install.packages(\"devtools\")\n# devtools::install_github(\"rstudio/shinyapps\")\n# \n# shinyapps::setAccountInfo(name='ericosantos', token='C3F9E81C9461F2B20CB4A30B9158215F', secret='ajKAtgb0Te6XStqn0vPO3bJJSShsKr0MC4V1mnHH')\n\ninstall_github('slidify', 'ramnathv')\ninstall_github('slidifyLibraries', 'ramnathv')\n\nlibrary(shiny)\nlibrary(shinyapps)\nlibrary(slidify)\nlibrary(slidifyLibraries)\n\nauthor(\"test\")\n\nx<-system(\"path\",intern = T)\n\nx\n",
+    "created" : 1406137111403.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "207722345",
+    "id" : "6C94ED23",
+    "lastKnownWriteTime" : 1406325983,
+    "path" : "C:/Users/erico.santos/Escola/Coursera/DataScienceJohnsHopkins/DataProducts/projDataProd/base.R",
+    "project_path" : "base.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
